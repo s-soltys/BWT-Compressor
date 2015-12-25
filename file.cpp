@@ -1,7 +1,6 @@
 #include <stdafx.h>
 #include "header.h"
 
-//---------------------------  Funkcja zwracaj¹ca rozmiar pliku ----------------------------//
 unsigned FileSize(ifstream *file)
 {
 	file->seekg( 0, ios::end );
@@ -10,7 +9,6 @@ unsigned FileSize(ifstream *file)
 	return N;
 }
 
-//---------- Funkcja wczytuj¹ca blok o okreœlonym rozmiarze z pliku --------------------//
 byte* ReadBlock(ifstream *in, unsigned N)
 {
 	ifstream *input = in;
@@ -28,7 +26,6 @@ byte* ReadBlock(ifstream *in, unsigned N)
 	return inbuf;
 }
 
-//-----  Funkcja zapisuj¹ca blok o okreœlonym rozmiarze do pliku wyjœciowego -----------//
 void WriteBlock(ofstream *out, byte *outbuf, unsigned N)
 {
 	ofstream *output = out;

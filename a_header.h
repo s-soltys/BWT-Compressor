@@ -1,7 +1,6 @@
 #ifndef AritHeader
 #define AritHeader
 
-//---------------------- koder arytmetyczny --------------------------//
 #include <fstream>
 
 typedef unsigned char byte;
@@ -9,13 +8,13 @@ typedef unsigned char byte;
 using namespace std;
 using namespace System;
 
-//--------------- parametry kodera arytmetycznego --------------------//
+//--------------- arithmetic encoder parameters --------------------//
 #define q1 16384 
 #define q2 32768
 #define q3 49152
 #define top 65535
 
-//---------------------------- model adaptacyjny --------------------//
+//---------------------------- adaptive model parameters --------------------//
 #define Max_cumul_frequency 16383
 extern int cumul_freq[257];
 

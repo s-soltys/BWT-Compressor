@@ -11,26 +11,25 @@ typedef unsigned char byte;
 using namespace std;
 using namespace System;
 
-//------------------ Obs³uga plików -----------------------------------//
 unsigned FileSize(ifstream *file);
 byte* ReadBlock(ifstream *in, unsigned N);
 void WriteBlock(ofstream *out, byte *outbuf, unsigned N);
 
-//------------------ Kodowanie RLE -----------------------------------//
+//------------------ RLE Encoding -----------------------------------//
 byte* RLE_encode (byte *input, unsigned N, unsigned &out);
 byte* RLE_decode (byte *input, unsigned N, unsigned &out);
 
-//------------------ Transformacja Burrowsa-Wheelera -----------------//
+//------------------ Burrowsa-Wheeler Transform -----------------//
 int compare(const int *left, const int *right);
 byte* BWT_encode(byte *input, unsigned N, unsigned &index);
 byte* BWT_decode(byte *input, unsigned N, unsigned index);
 
-//------------------ Move-To-Front ----------------------------------//
+//------------------ Move-To-Front Transform ----------------------------------//
 void MTF_init ();
 byte* MTF_encode (byte *input, unsigned N);
 byte* MTF_decode (byte *input, unsigned N);
 
-//------------------ Koder Aritmetyczny ----------------------------//
+//------------------ Arithmetic encoder ----------------------------//
 void Arit_encode (byte *input, unsigned N);
 byte* Arit_decode (unsigned N);
 

@@ -4,7 +4,6 @@
 ifstream *input;
 int in_buff, in_bits, garbage_bits;
 
-//---------------------- obs³uga wejœciowego strumienia bitowego ----------//
 inline int get_bit()
 {   
     if (in_bits==0) { 
@@ -18,7 +17,6 @@ inline int get_bit()
     return t;
 }
 
-//------------------- dekodowanie pojedynczego bajtu -----------------------//
 static long low, high, value, length, symbol, cum;
 int decode_symbol( int cumul_freq[] )
 {
@@ -49,7 +47,6 @@ int decode_symbol( int cumul_freq[] )
     return (symbol-1);
 }
 
-//----------------- funkcja inicjuj¹ca proces dekodowania --------------------//
 void Arit_decode_start(ifstream *file)
 {
 	input = file;
@@ -65,7 +62,6 @@ void Arit_decode_start(ifstream *file)
     high = top;
 }
 
-//--------------- odczytywanie i dekodowanie ca³ego bloku --------------//
 byte* Arit_decode(unsigned N)
 {
 	unsigned x=0;

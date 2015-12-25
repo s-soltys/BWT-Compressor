@@ -4,7 +4,6 @@
 ofstream *output;
 int out_buff, out_bits;
 
-//----------------- obs³uga wyjœciowego strumienia bitowego ---------------//
 inline void send_bit( int bit )
 {   
 	out_buff >>= 1; 
@@ -17,7 +16,6 @@ inline void send_bit( int bit )
     }
 }
 
-//------------------ kodowanie pojedynczego bajtu --------------------------//
 static long low, high, opposite_bits, length;   
 void encode_symbol(int symbol,int cumul_freq[] )
 {   
@@ -53,12 +51,11 @@ void encode_symbol(int symbol,int cumul_freq[] )
     }
 }
 
-//---------------- funkcja inicjuj¹ca kodowanie ----------------------------------//
 void Arit_encode_start(ofstream *file){
 	output = file;
 
 	if(!output->is_open()){
-		Console::WriteLine("Blad podczas zapisywania pliku");
+		Console::WriteLine("Error saving file.");
 		Console::Read();
 		exit(-1);
 	}
@@ -69,7 +66,6 @@ void Arit_encode_start(ofstream *file){
     low=opposite_bits=0; high=top;
 }
 
-//---------------- kodowanie ca³ego bloku danych do pliku wyjœciowego -----------//
 void Arit_encode(byte *input, unsigned N)
 { 
     for (unsigned i=0 ; i<N ; i++) {                
@@ -82,7 +78,6 @@ void Arit_encode(byte *input, unsigned N)
 	delete input;
 }
 
-//-------------------------------- koniec kodowania -----------------------------//
 void Arit_encode_stop()
 {   
 	opposite_bits += 1;                        
