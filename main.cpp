@@ -36,22 +36,26 @@ void encode(ifstream *InputFile, ofstream *OutputFile)
 		
 		// compression loop
 		byte *input, *bwt, *output, *rle;
-		Arit_encode_start(OutputFile); MTF_init(); 
-		for(unsigned i=0; i<parts; i++)
+		Arit_encode_start(OutputFile);
+        MTF_init();
+        
+		for (unsigned i = 0; i < parts; i++)
 		{
-			length=blocks[i]; 
+			length = blocks[i];
 			
-			input = ReadBlock(InputFile,length);									
+			input = ReadBlock(InputFile, length);									
 
-			rle = RLE_encode (input, length, rle_size);
-			blocks[i]=rle_size;
+			rle = RLE_encode(input, length, rle_size);
+            
+			blocks[i] = rle_size;
 
-			bwt = BWT_encode (rle, rle_size, indexes[i]);
+			bwt = BWT_encode(rle, rle_size, indexes[i]);
 
-			output = MTF_encode (bwt,rle_size);		
+			output = MTF_encode(bwt, rle_size);		
 
-			Arit_encode(output,rle_size);
+			Arit_encode(output, rle_size);
 		}
+        
 		Arit_encode_stop();
 
 		// save file info header
@@ -82,8 +86,11 @@ void decode(ifstream *InputFile, ofstream *OutputFile)
 
 		// decompression loop
 		byte *input, *mtf, *rle, *bwt;
-		Arit_decode_start(InputFile); MTF_init();
-		for(unsigned i=0; i<parts; i++){
+		Arit_decode_start(InputFile);
+        MTF_init();
+		
+        for(unsigned i=0; i<parts; i++)
+        {
 			rle_size = blocks[i];
 
 			input = Arit_decode(rle_size);
@@ -96,6 +103,7 @@ void decode(ifstream *InputFile, ofstream *OutputFile)
 
 			WriteBlock(OutputFile,rle,length);
 		}
+        
 		stop = clock();
 }
 
