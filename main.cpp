@@ -4,7 +4,6 @@
 #include "header.h"
 
 unsigned block_size = 1000000; // Block size
-
 clock_t start, stop;
 
 void encode(ifstream *InputFile, ofstream *OutputFile)
@@ -109,7 +108,6 @@ int main(array<System::String ^> ^args)
 
 	cout<<"Burrowsa-Wheeler Compressor\n\n";
 
-	// otwieranie plik�w
 	cout<<"Input file name:\n";
 	cin>>file_in;
 	cout<<"Output file name:\n";

@@ -13,7 +13,7 @@ byte* ReadBlock(ifstream *in, unsigned N)
 {
 	ifstream *input = in;
 	if(!input->is_open()){
-		Console::WriteLine("Blad podczas wczytywania pliku");
+		Console::WriteLine("File load error");
 		Console::Read();
 		exit(-1);
 	}
@@ -30,7 +30,7 @@ void WriteBlock(ofstream *out, byte *outbuf, unsigned N)
 {
 	ofstream *output = out;
 	if(!output->is_open()){
-		Console::WriteLine("Blad podczas zapisywania pliku");
+		Console::WriteLine("File save error");
 		Console::Read();
 		exit(-1);
 	}

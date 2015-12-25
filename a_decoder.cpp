@@ -3,6 +3,7 @@
 
 ifstream *input;
 int in_buff, in_bits, garbage_bits;
+static long low, high, value, length, symbol, cum;
 
 inline int get_bit()
 {   
@@ -17,7 +18,6 @@ inline int get_bit()
     return t;
 }
 
-static long low, high, value, length, symbol, cum;
 int decode_symbol( int cumul_freq[] )
 {
     length = high-low+1;

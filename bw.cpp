@@ -30,21 +30,17 @@ byte* BWT_encode(byte *input, unsigned N, unsigned &index)
     for(unsigned i=0; i<N; ++i)
         pointers[i] = i;
 
-	// sortowanie rotacji za pomoc� funkcji qsort i compare
 	qsort(pointers, (int)N, sizeof(int),
 		 (int(*)(const void *, const void *)) compare);
 
-	// wyznaczanie ostatniej kolumny posortowanych rotacji oraz wska�nika pozycji pocz�tkowej
 	int x=0;
     for (unsigned i=0; i<N; ++i)
     {
-		// wydzielanie kolejnych bajt�w znajduj�cych si� w ostatniej kolumnie
 		if (pointers[i] != 0)
 			output[x++]=input[pointers[i]-1];
         else
 			output[x++]=input[N-1];
 
-		// wydzielenie wska�nika pozycji pocz�tkowej
 		if (pointers[i] == 0)
 			index = i;
     }

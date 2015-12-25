@@ -3,6 +3,7 @@
 
 ofstream *output;
 int out_buff, out_bits;
+static long low, high, opposite_bits, length;   
 
 inline void send_bit( int bit )
 {   
@@ -16,7 +17,6 @@ inline void send_bit( int bit )
     }
 }
 
-static long low, high, opposite_bits, length;   
 void encode_symbol(int symbol,int cumul_freq[] )
 {   
 	length = high-low+1;
